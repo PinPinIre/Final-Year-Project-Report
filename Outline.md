@@ -27,3 +27,22 @@ Any problems encountered.
 Discuss how the work done could be improved and developed.
 Discus disadvantages to the approach taken.
 Negative Results are useful
+
+
+##State of the Art
+* Types of Machine Learning
+ * Supervised
+ * Reinforced
+ * Unsupervised
+* Technologies
+ * Gensim
+ * Sci-Kit Learn
+ * Annoy/FLANN
+* Topic Modeling
+ * LDA
+ * LSI
+ * pLSI
+* Deep Learning
+ * Word2Vec
+* Clustering
+ * KNN
