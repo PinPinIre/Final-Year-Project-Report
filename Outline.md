@@ -46,3 +46,8 @@ Negative Results are useful
  * Word2Vec
 * Clustering
  * KNN
+
+## Performance Criteria
+1. Performance
+2. Noise in Topics
+3. Compare metadata to results
