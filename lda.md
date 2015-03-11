@@ -22,4 +22,5 @@
  * LDA can aid in information retrieval and corpus exploration
  *"In this way, topic modeling provides an algorithmic solution to managing, organizing, and annotating large archives of texts."*
  * LDA is a probabilistic model
-  
+ * Developed as a fix to probabilistic latent semantic analysis.
+ pLSA itself was a fix for LSA (Deerwester) 
