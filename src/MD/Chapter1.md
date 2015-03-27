@@ -1,11 +1,22 @@
 # Chapter 1
 
-## Introduction and Motivation
-In recent years there has been an explosion in online learning resources.
-From the open access of arXiv to the rapid rise of the MOOC (Massive Open Online Course).
-These systems however only provide the learner with access to learning resources, they do not guarantee quality nor do they always facilitate a logical pathway to knowledge.
-In the pre-digital age some of this information would have been catalogued by a human and archived in a library.
-In the current digital age however the flood of information is too huge to be finely catalogued by human operators.
+### Introduction
+In this chapter I will give the motivation and the reasoning for the research carried out.
+Following this the research question is stated, the key objectives and challenges are examined and finally the outline of the report structure is laid out.
+
+### Motivation
+Since ancient times, humankind has collated and archived the written knowledge of our species into collections.
+From the Library of Alexandria to the modern day public library, humanity seems to have a need to preserve the knowledge of one generation to be presented to the next.
+These collections have proved invaluable for students and scholars wishing to expand their own knowledge and understanding.
+
+In recent years there has been a explosion in online learning resources.
+From projects like the Internet Archive, Wikipedia, Project Gutenberg, and the rapid rise of the MOOC (Massive Open Online Course) we can see the human need to preserve and share knowledge continuing.
+These systems however only provide the potential student with access to resources, they do not guarantee quality nor do they always facilitate a logical pathway to knowledge or understanding.
+
+In the pre-digital age, some of the knowledge in these documents would have been catalogued by a human to make access easier.
+The Dewey Decimal system used by libraries is an excellent example of the manual cataloguing of books to set topics.
+However in the current digital age the flood of information is too huge to be finely catalogued by human operators.
+There is also the problem of cataloging documents which could potentially contain a large number of varying topics.
 This presents learners with the challenge of finding relevant information to suit their needs.
 
 Often learners may be looking for information related to something they have already read but are unable to bridge the gap between what they have already read and what they should read next.
@@ -16,12 +27,12 @@ The performance will be evaluated on temporal performance, quality of results an
 Furthermore this project will detail the background of each of the algorithms.
 
 
-## Research Question
+### Research Question
 
-## Key Objectives
+### Key Objectives
 
-## Key Challenges
+### Key Challenges
 
-## Technical Approach
+### Technical Approach
 
-## Outline
+### Outline
