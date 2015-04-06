@@ -1,6 +1,6 @@
 %% ----------------------------------------------------------------
 %% Thesis.tex -- MAIN FILE (the one that you compile with LaTeX)
-%% ---------------------------------------------------------------- 
+%% ----------------------------------------------------------------
 
 % Set up the document
 \documentclass[a4paper, 11pt, oneside]{Thesis}  % Use the "Thesis" style, based on the ECS Thesis style by Steve Gunn
@@ -17,7 +17,7 @@
 \frontmatter      % Begin Roman style (i, ii, iii, iv...) page numbering
 
 % Set up the Title Page
-\title  {Education Resources}
+\title  {Improving learning resource recommendations for students}
 \authors  {\texorpdfstring
             {\href{CathalGeoghegan.me}{Cathal Geoghegan}}
             {Cathal Geoghegan}
@@ -45,46 +45,41 @@
 
 \addtocontents{toc}{\vspace{1em}}  % Add a gap in the Contents, for aesthetics
 
-I, Cathal Geoghegan, declare that this thesis titled, `THESIS TITLE' and the work presented in it are my own. I confirm that:
+I hereby declare that this thesis is entirely my own work and that it has not been submitted as an exercise for a degree at any other university.
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
 
-\begin{itemize} 
-\item[\tiny{$\blacksquare$}] This work was done wholly or mainly while in candidature for a research degree at this University.
- 
-\item[\tiny{$\blacksquare$}] Where any part of this thesis has previously been submitted for a degree or any other qualification at this University or any other institution, this has been clearly stated.
- 
-\item[\tiny{$\blacksquare$}] Where I have consulted the published work of others, this is always clearly attributed.
- 
-\item[\tiny{$\blacksquare$}] Where I have quoted from the work of others, the source is always given. With the exception of such quotations, this thesis is entirely my own work.
- 
-\item[\tiny{$\blacksquare$}] I have acknowledged all main sources of help.
- 
-\item[\tiny{$\blacksquare$}] Where the thesis is based on work done by myself jointly with others, I have made clear exactly what was done by others and what I have contributed myself.
-\\
-\end{itemize}
- 
- 
+
 Signed:\\
-\rule[1em]{25em}{0.5pt}  % This prints a line for the signature
- 
+\centerline{
+    \rule[1em]{25em}{0.5pt}  % This prints a line for the signature
+}
 Date:\\
-\rule[1em]{25em}{0.5pt}  % This prints a line to write the date
+\centerline{
+    \rule[1em]{25em}{0.5pt}  % This prints a line to write the date
+}
 }
 \clearpage  % Declaration ended, now start a new page
 
 %% ----------------------------------------------------------------
 % The "Funny Quote Page"
-\pagestyle{empty}  % No headers or footers for the following pages
+%\pagestyle{empty}  % No headers or footers for the following pages
 
-\null\vfill
+%\null\vfill
 % Now comes the "Funny Quote", written in italics
-\textit{``Write a funny quote here.''}
+%\textit{``Write a funny quote here.''}
 
-\begin{flushright}
-If the quote is taken from someone, their name goes here
-\end{flushright}
+%\begin{flushright}
+%If the quote is taken from someone, their name goes here
+%\end{flushright}
 
-\vfill\vfill\vfill\vfill\vfill\vfill\null
-\clearpage  % Funny Quote page ended, start a new page
+%\vfill\vfill\vfill\vfill\vfill\vfill\null
+%\clearpage  % Funny Quote page ended, start a new page
 %% ----------------------------------------------------------------
 
 % The Abstract Page
@@ -127,26 +122,17 @@ The acknowledgements and the people to thank go here, don't forget to include yo
 \listoftables  % Write out the List of Tables
 
 %% ----------------------------------------------------------------
-\setstretch{1.5}  % Set the line spacing to 1.5, this makes the following tables easier to read
-\clearpage  % Start a new page
-\lhead{\emph{Abbreviations}}  % Set the left side page header to "Abbreviations"
-\listofsymbols{ll}  % Include a list of Abbreviations (a table of two columns)
-{
+%\setstretch{1.5}  % Set the line spacing to 1.5, this makes the following tables easier to read
+%\clearpage  % Start a new page
+%\lhead{\emph{Abbreviations}}  % Set the left side page header to "Abbreviations"
+%\listofsymbols{ll}  % Include a list of Abbreviations (a table of two columns)
+%{
 % \textbf{Acronym} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or \\
-\textbf{LAH} & \textbf{L}ist \textbf{A}bbreviations \textbf{H}ere \\
+%\textbf{LAH} & \textbf{L}ist \textbf{A}bbreviations \textbf{H}ere \\
 
-}
+%}
 %% ----------------------------------------------------------------
 % End of the pre-able, contents and lists of things
-% Begin the Dedication page
-
-\setstretch{1.3}  % Return the line spacing back to 1.3
-
-\pagestyle{empty}  % Page style needs to be empty for this page
-\dedicatory{For/Dedicated to/To my\ldots}
-
-\addtocontents{toc}{\vspace{2em}}  % Add a gap in the Contents, for aesthetics
-
 
 %% ----------------------------------------------------------------
 \mainmatter	  % Begin normal, numeric (1,2,3...) page numbering
@@ -157,7 +143,7 @@ The acknowledgements and the people to thank go here, don't forget to include yo
 \lhead{\emph{}}  % Set the left side page header to ""
 \input{Chapters/Chapter1} % Introduction
 
-%\input{Chapters/Chapter2} % Background Theory 
+%\input{Chapters/Chapter2} % Background Theory
 
 %\input{Chapters/Chapter3} % Experimental Setup
 

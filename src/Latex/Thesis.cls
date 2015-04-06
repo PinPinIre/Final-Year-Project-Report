@@ -145,7 +145,7 @@
 \newcommand*{\FACULTY}[1]{\def\FACNAME{#1}}
 \newcommand*{\subject}[1]{\def\subjectname{#1}}
 \newcommand*{\keywords}[1]{\def\keywordnames{#1}}
-\supervisor  {}
+\supervisor  {Dr. Alexander O'Connor}
 \examiner    {}
 \degree      {B.A. (Mod.) Computer Science}
 \authors     {}
@@ -168,8 +168,8 @@
                 {}}
                 {}}
 \faculty     {\texorpdfstring{\href{}
-                {}}
-                {}}
+                {O’Reilly Institute, Trinity College, Dublin 2, Ireland}}
+                {O’Reilly Institute, Trinity College, Dublin 2, Ireland}}
 \FACULTY     {\texorpdfstring{\href{}
                 {}}
                 {}}
@@ -192,25 +192,24 @@
     \vskip 60\p@
     \begin{center}
       \setlength{\parskip}{0pt}
-      {\large\textbf{\UNIVNAME}\par}
+      {\huge\textbf{\UNIVNAME}\par}
+      \vfill
+      {\centerline{
+      \includegraphics[scale=0.35]{Figures/trinity.png}
+      }}
       \vfill
       {\huge \bf \@title \par}
       \vfill
-      {\LARGE by \par}
-      \smallskip
-      {\LARGE \authornames \par}
-      \vfill
+      {\large \authornames \par}
+      {\large  \@date \par}
+      \bigskip
       {\large B.A. (Mod.) Computer Science \par}
+      {\large Final Year Project \par}
+      {\large Supervisor: \supname \par}
       \bigskip
       \bigskip
-      {\large in the \par}
       {\large \facname \par}
       {\large \deptname \par}
-      \bigskip
-      \bigskip
-      \bigskip
-      {\Large \@date \par}
-      \bigskip
     \end{center}
     \par
     \@thanks
