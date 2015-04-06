@@ -28,10 +28,37 @@ Furthermore this project will detail the background of each of the algorithms.
 
 
 ### Research Question
+The main research question that this project hopes to answer is; can we identify the best algorihtm for resource recomendations by comparing their output on a varrying corpus of academic papers.
 
 ### Key Objectives
+In order to answer the above research question their are three objectives we must first complete.
+
+1.
+Appropriate algorithms for generating recomendations must be first researched.
+From the algorithms researched the most relevant today for generating recomendations must be chosen.
+
+2.
+A corpus must be selected that is relatively large and must contain a variety of topics.
+The corpus should also contain educational documents.
+
+3.
+The algorithms being evaluated are unsupervised and thus have no ideal model to compare against.
+To identify the best algorihtm to use an appropriate performance criteria must be decided on.
+
+4.
+Once the above objectives have been completed the algorithms chosen must be applied to the selected corpus.
+An evaluation of the performance of each of the algorithms must then be conducted.
 
 ### Key Challenges
+As well as the objectives outlined above there are a number of challenges that must overcome before the above research question can be answered.
+
+1.
+The selection of an appropriate educational corpus poses a problem due to the closed nature of publishing.
+Access to many academic papers and journals are often restricted to subscribers or members of professional organisations.
+
+2.
+The corpus selected must be a respected academic resource.
+As the research project is investigating the generation of recomendations in an educational context, the quality of the corpus should be to a high standard. 
 
 ### Technical Approach
 
