@@ -58,8 +58,33 @@ Access to many academic papers and journals are often restricted to subscribers 
 
 2.
 The corpus selected must be a respected academic resource.
-As the research project is investigating the generation of recomendations in an educational context, the quality of the corpus should be to a high standard. 
+As the research project is investigating the generation of recomendations in an educational context, the quality of the corpus should be to a high standard.
+
+3.
+Any algorithms or libraries chosen for the project will have differences which will have to be overcome.
+These differences could vary from function API's to how data is represented internally.
+
+4.
+The algorithms being investigated are unsupervised.
+This means that there is not a gold standard or previous model to compare the results to.
+The evaluation of the generated recomendations is therefore difficult as it is largely subjective.
 
 ### Technical Approach
 
-### Outline
+### Thesis Outline
+Chapter 2 gives an analysis of machine learning and detailed account of the current state of the art in content filtering.
+This chapter will finish with a review of what others have done in this field and how my project relates to their work.
+
+Chapter 3 will describe my approach to the problems and the various design descions I made throughout the project.
+This chapter will contain a breakdown of the project design as well as diagrams of the system archictecture.
+
+Chapter 4 will be an evaluation of the system design presented in Chapter 3.
+Best practices and challenges encountered will be discussed in this chapter.
+An unbiased evaluation of the system will also be made.
+
+Chapter 5 will be an evaluation of experiment results and a measure of the systems performance.
+The criteria for a good learning resource will also be presented as well as any non-functional requirements.
+A discussion of each of the algorithms chosen will also be presented individually and as a group.
+
+Chapter 6 will conclude the report with a review of the project and results obtained.
+A short overview of future work and how my system could be improved will also be presented.
