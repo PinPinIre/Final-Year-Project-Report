@@ -24,14 +24,28 @@ Machine learning can be split into three different types of learning:
 \end{itemize}
 
 \subsection{Supervised learning}
-Supervised learning is a machine learning method which tries to create a model which maps inputs to desired outputs.
+Supervised learning is a machine learning technique which tries to create a model which maps inputs to desired outputs.
 This can be represented as a function f(x) which maps an input \(x_i\) to an output \(y_i\).
 This is acheived by using a training set T = \((x_i, y_i)\) and a learning algorithm.
 The learning algorithm produces a function \(\hat{f}(x_i)\) which can then be modified in response to the difference between \(y_i - \hat{f}(x_i)\).
 
 \subsection{Reinforced learning}
+Reinforced learning is a machine learning technique where the machine interacts with an environment and produces actions \(a_i\).
+These set of actions interact with the environment which in turn results in the machine receiving rewards \(r_i\) from a rewards function.
+The machine tries to learn how to create actions which maximises the future return on rewards.
 
 \subsection{Unsupervised learning}
+Unsupervised learning is a machine learning technique which tries to find hidden patterns in data.
+An unsupervised learning algorithm receives inputs \(x_i\) but receives no desired outputs nor rewards.
+The machine the tries to build a probalistic model of the data or it uses clustering to partion the data in categories.
+
+The main difference between unsupervised techniques and other techniques is the lack of a clear measure of success.
+This poises a problem when comparing the accuracy of different unsupervised techniques.
+The effectivness of unsupervised techniques therefore rely heavily on heuristic approaches when judging their quality.
+
+The research conducted in this project is focused on this type of machine learning.
+Due to the fact that there is no gold standard to compare the quality of the similarity results, their effectiveness will be a matter of opinion.
+Where possible the results will also be compared against any possible meta-data to help judge their effectivness.
 
 \section{Recomendation Systems}
 \subsection{Background}
