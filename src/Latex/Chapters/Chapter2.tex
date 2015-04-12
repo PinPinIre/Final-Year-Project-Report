@@ -1,6 +1,6 @@
 \chapter{}
 
-In this section the backgroud to the state of the art in machine learning and content filtering will be presented.
+In this section the background to the state of the art in machine learning and content filtering will be presented.
 In particular the use of machine learning algorithms used in the content filtering component of recomendation systems will be discussed.
 The different types of machine learning and recomendation systems will be introduced and then discussed in detail.
 
@@ -8,10 +8,13 @@ The different types of machine learning and recomendation systems will be introd
 \section{Machine Learning}
 Machine learning is an interdisiplinary field concerned with the study of self learning systems.
 Machine learning has applications in fields such as; statistics, mathmathics, computer vision, game theory, information retrival, software engineering, sentiment analysis, artifical intelligence.
+
 In 1947 Alan Turing presented a lecture to the London Mathematical Society where he theorised that it would be possible for a machine to learn from it's experiences.
 In Turing's example he proposed that learning be a prerequiste for a true intelligent system.
 Turing further expanded on the concept of an intelligent machine in his 1950 paper which proposed a theorethical test to identify whether machines could be considered intelligent.
 
+Machine learning algorithms try to build a model of a dataset by learning the patterns in the data.
+The result of this is that machine learning algorithms can output seeminly intelligent results for data it has never seen before.
 
 Machine learning can be split into three different types of learning:
 \begin{itemize}
@@ -19,6 +22,16 @@ Machine learning can be split into three different types of learning:
     \item Reinforced learning
     \item Unsupervised learning
 \end{itemize}
+
+\subsection{Supervised learning}
+Supervised learning is a machine learning method which tries to create a model which maps inputs to desired outputs.
+This can be represented as a function f(x) which maps an input \(x_i\) to an output \(y_i\).
+This is acheived by using a training set T = \((x_i, y_i)\) and a learning algorithm.
+The learning algorithm produces a function \(\hat{f}(x_i)\) which can then be modified in response to the difference between \(y_i - \hat{f}(x_i)\).
+
+\subsection{Reinforced learning}
+
+\subsection{Unsupervised learning}
 
 \section{Recomendation Systems}
 \subsection{Background}
