@@ -108,6 +108,12 @@ In a similar study to the above, LDA was applied to 21,434 articles from Science
 The purpose of this experiment was to infer the most relevant topics from a document and then to find the most similar documents.
 A article on Statistical Significance in Protein and DNA sequencing was used to generate recomendations for articles related to Protein sequencing, genome sequencing and sampling strategies.
 
+The research project conducted used the LDA implementation from the Gensim Python library.
+Gensim is a library which was originally created in 2008 to find similar articles in the Czech Digital Mathematics Library.
+Gensim was chosen as it allows the creation of an LDA model which is memory independent of the size of the input corpus.
+\cite{rehurek_lrec}
+
+
 \subsection{k-Nearest-Neighbours}
 k-Nearest-Neighbours is a model free algorithm for classification and pattern recognition.
 In k-Nearest-Neighbour classifiers when given a query point \textit{x}, the k nearest points in distance to \textit{x} are used to classify \textit{x}.
@@ -123,5 +129,7 @@ Instead k-NN was used to find the k-nearest documents to a query document.
 This clustering of documents is based on the assumption that the k-nearest documents in feature space will be similar to the query document.
 
 \subsection{Word2Vec}
+Word2Vec is an algorithm introduced in 2013 by Mikolov which uses neural networks to learn vector representations of words.
+
 
 \section{Conclusion}
