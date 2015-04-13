@@ -93,16 +93,16 @@ Each of these algorithms have applications in information retrival and are not j
 \subsection{Latent Dirichlet Allocation}
 LDA is a probalistic model for any discreate data but in this research project and most of the literature reviewed, textual data has been used.
 LDA was introduced in 2004 by Blei, Ng and Jordan as an improvement on Deerwester's Latent Semantic Indexing (LSI) and on Hofmann's later Probalistic Latent Semantic Indexing (pLSI).
-LDA was created in response to two problems identified with pLSI; the number of paramaters in the model grew linearly with the size of the corpus, and it was unclear as to how to assign a probability to a document that the model had never seen before.
+LDA was created in response to two problems identified with pLSI; the number of paramaters in the model grew linearly with the size of the corpus, and it was unclear as to how to assign a probability to a document that the model had never seen before\cite{LDAintro}.
 
 LDA is hierarchical model which assumes that documents contain a mixture of topics and that topics are a mixture of word probabilities.
 LDA is also a bag of words model which assumes that the topics are generated first and then documents are generated from these topics.
-These assumptions are used when infering topics as it a reversing of the generation process.
+These assumptions are used when infering topics as it a reversing of the generation process\cite{LDAintro}.
 
 LDA has been used in the past on a corpus of 17,000 articles from the magazine Science, with 100 topics.
 The LDA model that was generated using this corpus was fed an unseen article on genome mapping and sequencing.
 The distibution of topics in the article were then calculated and graphed.
-It was found that the topics which seemed to be about; genetics, evoloution, disease, and computers had a high concentration in the article.
+It was found that the topics which seemed to be about; genetics, evoloution, disease, and computers had a high concentration in the article\cite{ACMTopicModel}.
 
 In a similar study to the above, LDA was applied to 21,434 articles from Science to create 50 topics.
 The purpose of this experiment was to infer the most relevant topics from a document and then to find the most similar documents.
@@ -110,13 +110,17 @@ A article on Statistical Significance in Protein and DNA sequencing was used to 
 
 \subsection{k-Nearest-Neighbours}
 k-Nearest-Neighbours is a model free algorithm for classification and pattern recognition.
-In k-Nearest-Neighbour classifiers when given a query point \textit{x}, the k nearest points in distance to \textit{x} are used to classify x.
+In k-Nearest-Neighbour classifiers when given a query point \textit{x}, the k nearest points in distance to \textit{x} are used to classify \textit{x}.
 When k is 1, the query point x is classified as being the same as the point nearest to it.
 When k is a value greater than 1 a simple majority vote of the k nearest points can be used to classify \textit{x}\cite{elementsStat}.
 
 When k-Nearest-Neighbours is applied to high-dimensional feature space the distance between the k nearest neighbours can be quite high causing bias and a degredation of performance\cite{elementsStat}.
+An approach to try and overcome the distance problem is to weight each of the k nearest neighbours vote based on their distace to the query \textit{x}\cite{top10datamining}.
 
-
+Despite the simplicity of the approach used by k-NN it has been featured as on of the top algorithms to use in data-mining\cite{top10datamining}.
+For this research project k-NN was not used to classify documents into predefined classes.
+Instead k-NN was used to find the k-nearest documents to a query document.
+This clustering of documents is based on the assumption that the k-nearest documents in feature space will be similar to the query document.
 
 \subsection{Word2Vec}
 
