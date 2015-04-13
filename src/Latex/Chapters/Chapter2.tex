@@ -1,4 +1,4 @@
-\chapter{}
+\chapter{State of the Art}
 
 In this section the background to the state of the art in machine learning and recommendation systems will be presented.
 In particular the use of machine learning algorithms used as the content filtering component of recommendation systems will be discussed.
@@ -118,12 +118,12 @@ Gensim was chosen as it allows the creation of an LDA model which is memory inde
 k-Nearest-Neighbours is a model free algorithm for classification and pattern recognition.
 In k-Nearest-Neighbour classifiers when given a query point \textit{x}, the k nearest points in distance to \textit{x} are used to classify \textit{x}.
 When k is 1, the query point x is classified as being the same as the point nearest to it.
-When k is a value greater than 1 a simple majority vote of the k nearest points can be used to classify \textit{x}\cite{elementsStat}.
+When k is a value greater than 1 a simple majority vote of the k nearest points can be used to classify \textit{x}.\cite{elementsStat}
 
-When k-Nearest-Neighbours is applied to high-dimensional feature space the distance between the k nearest neighbours can be quite high causing bias and a degradation of performance\cite{elementsStat}.
-An approach to try and overcome the distance problem is to weight each of the k nearest neighbours vote based on their distance to the query \textit{x}\cite{top10datamining}.
+When k-Nearest-Neighbours is applied to high-dimensional feature space the distance between the k nearest neighbours can be quite high causing bias and a degradation of performance.\cite{elementsStat}
+An approach to try and overcome the distance problem is to weight each of the k nearest neighbours vote based on their distance to the query \textit{x}.\cite{top10datamining}
 
-Despite the simplicity of the approach used by k-NN it has been featured as on of the top algorithms to use in data-mining\cite{top10datamining}.
+Despite the simplicity of the approach used by k-NN it has been featured as on of the top algorithms to use in data-mining.\cite{top10datamining}
 For this research project k-NN was not used to classify documents into predefined classes.
 Instead k-NN was used to find the k-nearest documents to a query document.
 This clustering of documents is based on the assumption that the k-nearest documents in feature space will be similar to the query document.
@@ -146,3 +146,7 @@ The later doc2vec implementation is the one which is being investigate by this p
 
 
 \section{Conclusion}
+The field of machine learning and recommendation systems is vast and the number of techniques and approaches which could be used is equally as vast.
+From my research I have narrowed down the scope of this project to focus on the performance of three relevant algorithms; LDA, k-NN and word2vec.
+These three algorithms are quite different in their implementations and have different applications outside the scope of this project.
+I hope that by focusing my research on this algorithms I will be able to successfully analyse the performance of some of the best algorithms to use for the content-filtering component of a recommendation system.
