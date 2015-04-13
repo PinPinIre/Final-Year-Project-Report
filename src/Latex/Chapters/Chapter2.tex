@@ -132,7 +132,17 @@ This clustering of documents is based on the assumption that the k-nearest docum
 Word2Vec is an algorithm introduced in 2013 by Mikolov which uses a simple neural network to learn continuous vector representations of words.
 These vector representations of words can be used to describe the similarly between words.
 Words which are spatially close in this representation can described as being semantically close while words which are spatially distant can be described as being semantically different.
-We also have the benefit of being able to apply algebraic operations to these  word vectors. This was shown intuitively by Mikolov as:
-\textit{King - Man + Woman” ~ Queen}
+We also have the benefit of being able to apply algebraic operations to these  word vectors.
+This was shown intuitively by Mikolov as: \textit{King - Man + Woman” = Queen} and by \textit{Madrid - Spain + France = Paris}.
+
+By training the word vectors using a neural network we are able to learn the multiple degrees of similarity between words\cite{Mikolov1}.
+The result is a vector representation which can encode linguistic patterns and regularities.\cite{Mikolov2}
+A small problem with Mikolov's original word2vec paper was that the algorithm created a word based model.
+The algorithm was later extended by Mikolov to allow word and phrase based models.\cite{Mikolov2}
+
+The research project conducted used the word2vec implementation from the Gensim Python library.
+The Gensim library contains a word2vec and a doc2vec implementation. The word2vec implementation follows Mikolov's original word base model while the doc2vec implementation is based on Mikolov's later phrase base model.\cite{radimDoc2Vec}
+The later doc2vec implementation is the one which is being investigate by this project.
+
 
 \section{Conclusion}
