@@ -12,8 +12,24 @@ The corpus requirements deal with the selection of the corpus and sampling of th
 The implementation requirement deal with the three algorithms chosen and the different libraries used to implement them in the project.
 
 \subsection{Corpus Selection}
+In the context of generating recommendations for a student an academic or educational corpus should be used.
+The availability of a large and respected educational corpus poises a problem however.
+It was decided that academic papers from arXiv would act as a proxy for educational resources.
+This in itself could create a problem due to how academic papers are usually written.
+The language of an academic paper is usually quite different to the language used in a textbook or a lecture.
+The language used is generally an advanced discussion of a particular subject, which itself could have it's own vocabulary.
+
+\subsection{Document Preprocessing}
 
 \subsection{Corpus Sampling}
+The corpus selected contains approximately 50,000 academic papers from arXiv.
+The corpus contains a mixture of papers from Physics, Mathematics, Computer Science and Nonlinear Sciences.
+The papers are further split into smaller specific sections which have been selected by a moderator from arXiv.
+There is however a disproportionate number of papers related to physics compared to the other sections.
+As the algorithms are to be applied to a corpus of varying size the distribution of papers from each of the arXiv sections should be maintained.
+This should be done in order to prevent papers from a particular topic or area from dominating the models generated.
+
+To overcome this problem the system could sample papers from each of the arXiv defined topics.
 
 \subsection{Algorithm Performance}
 
