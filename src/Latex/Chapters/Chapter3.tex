@@ -85,8 +85,13 @@ The generation of the models has been split from the generation of the document 
 This was done as the building of the model and then querying the model should be viewed as two separate processes.
 
 \subsection{Models}
-\includegraphics[width=10cm]{Figures/ArchictectureBuildingUML.png}
-As shown in the UML activity diagrams the system has to go through a number of steps to build the models.
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=0.7\textwidth]{Figures/ArchictectureBuildingUML.png}
+    \caption{Model building activity diagram}
+    \label{fig:buildUML}
+\end{figure}
+As shown in Figure~\ref{fig:buildUML} the system has to go through a number of steps to build the models.
 First the system has to download the papers from the arXiv amazon S3 bucket.
 The papers are then converted from PDF to txt and sorted into directories based on their arXiv topic separations.
 A harness for building the models is then run on the plain text corpus.
@@ -119,6 +124,11 @@ This results in a model where each word and document in the corpus has a word ve
 This word vector representation can be used to query how similar words or documents are to each other.
 
 \subsection{Queries}
-\includegraphics[width=15cm]{Figures/ArchictectureQueryUML.png}
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=0.7\textwidth]{Figures/ArchictectureQueryUML.png}
+    \caption{Similarity query activity diagram}
+    \label{fig:queryUML}
+\end{figure}
 
 \section{Conclusion}
