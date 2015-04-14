@@ -126,9 +126,25 @@ This word vector representation can be used to query how similar words or docume
 \subsection{Queries}
 \begin{figure}[h]
     \centering
-        \includegraphics[width=0.7\textwidth]{Figures/ArchictectureQueryUML.png}
+        \includegraphics[width=0.5\textwidth]{Figures/ArchictectureQueryUML.png}
     \caption{Similarity query activity diagram}
     \label{fig:queryUML}
 \end{figure}
+As shown in Figure~\ref{fig:queryUML} the system to run the similarity queries is relatively straight forward.
+The system generates a list of query files and then loads the documents.
+If the model being tested is not Word2Vec the corpus dictionary must be loaded and the query files converted to a bag-of-words representation.
+If the model is Word2Vec the query documents are simply loaded as they are without processing them further.
+
+The models are then loaded and each of the queries is run.
+If the model being tested is Word2Vec the query document must be labelled and then added to the model.
+This is done in order to create a word vector representation of the document.
+Once we have done this we can query the Word2Vec model to find words and documents which are semantically similar to the query document.
+
+The similarity results are then generated and logged.
+The final stage of this process parses the similarity results and saves the results to JSON.
+The results are save to JSON in order to make it easier to load the results into another language other than Python.
 
 \section{Conclusion}
+The problems identified in chapter one have been analysed in this chapter and design solutions have been proposed.
+These solutions form the basis of the system which has been built.
+The system architecture as show in Figures~\ref{fig:queryUML}~\ref{fig:buildUML} has been built and will be presented in detail in the following chapter.
