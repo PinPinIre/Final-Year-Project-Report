@@ -32,7 +32,7 @@ The size of the arXiv corpus was also considered during this step.
 As each paper is independent of other papers, the conversion to plain text could be carried out in parallel.
 This greatly speeded up the preprocessing stage as a four core machine could convert four papers at once.
 
-Each of the arXiv papers follows the naming convention as follows: \textit{<topic><paperid>}.
+Each of the arXiv papers follows the naming convention as follows: \textit{$\ll$topic-name$\gg\ll$paper-id$\gg$}.
 This metadata can be used to sort the papers in directories based on their arXiv topic and to calculate the distribution of papers from specific areas.
 More importantly this metadata allows us to compare the similar document recommendations generated against the arXiv topics.
 If we consider the arXiv groupings to be a baseline we could assume that recommendations generated should return a large number of documents that are also in the same arXiv topic.
@@ -40,12 +40,17 @@ If we consider the arXiv groupings to be a baseline we could assume that recomme
 \subsection{Corpus Sampling}
 The corpus selected contains approximately 50,000 academic papers from arXiv.
 The corpus contains a mixture of papers from Physics, Mathematics, Computer Science and Nonlinear Sciences.
-The papers are further split into smaller specific sections which have been selected by a moderator from arXiv.
+The papers are further split into smaller specific topics which have been selected by a moderator from arXiv.
 There is however a disproportionate number of papers related to physics compared to the other sections.
 As the algorithms are to be applied to a corpus of varying size the distribution of papers from each of the arXiv sections should be maintained.
 This should be done in order to prevent papers from a particular topic or area from dominating the models generated.
+If this was not done it would be possible that the algorithms could become too finely tuned to papers of a specific topic.
+This could then result in the model generating a disproportionate number of recommendations from that particular topic.
 
-To overcome this problem the system could sample papers from each of the arXiv defined topics.
+To overcome this problem the system samples papers from each of the arXiv defined topics.
+As different size corpus are tested a number of papers are randomly selected from each of the arXiv defined topics.
+In order to ensure that the distribution of topics is consistent for every corpus size tested, the systems selects random papers so that the proportion of papers in each topic is the same.
+
 
 \subsection{Algorithm Performance}
 
