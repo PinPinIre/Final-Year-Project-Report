@@ -1,29 +1,29 @@
 \chapter{State of the Art}
 
 In this section the background to the state of the art in machine learning and recommendation systems will be presented.
-In particular the use of machine learning algorithms used as the content filtering component of recommendation systems will be discussed.
+In particular the use of machine learning algorithms as the content filtering component of recommendation systems will be discussed.
 The different approaches to machine learning and recommendation systems will also be introduced and then discussed in detail.
 
 \section{Background}
 In 1947 Alan Turing presented a lecture to the London Mathematical Society in which he theorised that it would be possible for a machine to learn from it's experiences.
-In Turing's example he proposed that learning be a prerequisite for a true intelligent system \cite{Turing1946}.
-Turing further expanded on the concept of an intelligent machine in his 1950 paper which proposed a theoretical test, which he called the "imitation game", to identify whether machines could be considered intelligent \cite{Turing1950}.
+In Turing's example he proposed that learning was a prerequisite for a true intelligent system \cite{Turing1946}.
+Turing further expanded on the concept of an intelligent machine in his 1950 paper in which he proposed a theoretical test, called the "imitation game", to identify whether machines could be considered intelligent \cite{Turing1950}.
 This test has since become know as the Turing test.
 
 Machine learning and recommendation systems can be viewed as semi-intelligent machines which try to learn from data fed into them.
 These machines are replacements for human operators who would have had to classify data or suggest recommendation in the past.
 One of main reasons machines are used instead of humans for this task is largely due to the volume of data available.
 Another factor to consider is the quality of results obtained from the system.
-For example humans can be biased by their opinion when presenting their results or findings.
-A machine on the other hand generates it's results using the model it has created using the data that has been presented to it.
-This approach is less likely to be skewed by personal bias when the model has been created using a balanced dataset\cite{FProvost2000}.
+Humans for example can be biased in their opinion when presenting their results or findings.
+A machine on the other hand generates it's results using the model it has created using only the data that has been presented to it.
+This approach is less likely to be skewed by a bias when the model has been created using a balanced dataset\cite{FProvost2000}.
 
 \section{Machine Learning}
 Machine learning is an interdisciplinary field concerned with the study of self learning systems.
-Machine learning has applications in fields such as; statistics, mathematics, computer vision, game theory, information retrieval, software engineering, sentiment analysis, artificial intelligence.
+Machine learning has applications in fields such as; statistics, mathematics, computer vision, game theory, information retrieval, software engineering, sentiment analysis, and artificial intelligence.
 
 Machine learning algorithms try to build a model of a dataset by learning the patterns in the data.
-The result of this is that machine learning algorithms can output seemingly intelligent results for data it has never seen before.
+The resulting model created by many machine learning algorithms can then output seemingly intelligent results for data that it has never seen before.
 
 Machine learning can be split into three different types of learning:
 \begin{itemize}
@@ -88,10 +88,10 @@ However all of the algorithms investigated could be used in an content-filtering
 
 \section{State of the Art}
 This research project is investigating the performance of LDA, k-NN and Word2Vec as the content-filtering component of a recommendation system.
-Each of these algorithms have applications in information retrieval and are not just confined to the field of recommendations systems nor an educational corpus.
+Each of these algorithms have applications in information retrieval and are not just confined to the field of recommendations systems nor to an educational corpus.
 
 \subsection{Latent Dirichlet Allocation}
-LDA is a probabilistic model for any discrete data but in this research project and most of the literature reviewed, textual data has been used.
+LDA is a probabilistic model for any discrete data. In this research project and in most of the literature reviewed, textual data has been used.
 LDA was introduced in 2004 by Blei, Ng and Jordan as an improvement on Deerwester's Latent Semantic Indexing (LSI) and on Hofmann's later Probabilistic Latent Semantic Indexing (pLSI).
 LDA was created in response to two problems identified with pLSI; the number of parameters in the model grew linearly with the size of the corpus, and it was unclear as to how to assign a probability to a document that the model had never seen before\cite{LDAintro}.
 
@@ -106,12 +106,12 @@ It was found that the topics which seemed to be about; genetics, evolution, dise
 
 In a similar study to the above, LDA was applied to 21,434 articles from Science to create 50 topics.
 The purpose of this experiment was to infer the most relevant topics from a document and then to find the most similar documents.
-A article on Statistical Significance in Protein and DNA sequencing was used to generate recommendations for articles related to Protein sequencing, genome sequencing and sampling strategies.
+An article on Statistical Significance in Protein and DNA sequencing was used to generate recommendations for articles related to Protein sequencing, genome sequencing and sampling strategies.
 
-The research project conducted used the LDA implementation from the Gensim Python library.
+This research project used the LDA implementation from the Gensim Python library.
 Gensim is a library which was originally created in 2008 to find similar articles in the Czech Digital Mathematics Library.
 Gensim was chosen as it allows the creation of an LDA model which is memory independent of the size of the input corpus.
-\cite{rehurek_lrec}
+As the original intention for Gensim was to generate recommendations for academic articles, this influenced the choice of the library.\cite{rehurek_lrec}
 
 
 \subsection{k-Nearest-Neighbours}
