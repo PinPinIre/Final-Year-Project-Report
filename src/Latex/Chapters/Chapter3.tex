@@ -74,5 +74,17 @@ Evaluating the quality of recommendations by hand is also imperfect due to the f
 
 \subsection{Algorithm Tuning}
 
-\section{System Archictecture}
+\section{System Overview}
+\includegraphics[width=15cm]{Figures/ArchictectureBuildingUML.png}
+As shown in the UML activity diagrams the system has to go through a number of steps to build the models.
+First the system has to download the arXiv papers from the arXiv amazon S3 bucket.
+The papers are then converted from PDF to txt and sorted into directories based on their arXiv topic separations.
+A harness for building the models is then run on the plain text corpus.
+Depending on the algorithm used the system flow splits at this point.
+If LDA or KNN is used then a dictionary of words must be built and then very common and very uncommon words are filtered out.
+This is done as very common words that are present in a majority of the documents are very unlikely to have strong influence on the similarity of the content of documents.
+Likewise very uncommon words are discarded as they are very likely to be noise in the dataset. Examples of this would be misspelled words or typesetting errors from the original papers.  
+
+\includegraphics[width=15cm]{Figures/ArchictectureQueryUML.png}
+
 \section{Conclusion}
