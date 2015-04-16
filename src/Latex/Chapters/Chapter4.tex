@@ -82,6 +82,12 @@ The Corpus class is an abstract class used to represent a bag-of-words corpus.
 The docs attribute is a list of document names from the corpus.
 The dictionary attribute is a Gensim Dictionary object which represents the words in the corpus and their respective term frequencies.
 
+The Corpus classes static function get_docs is an interesting function used to generate a list of corpus files.
+The function receives a path to a system directory, a dictionary of file distributions in sub-directories and a maximum number of files.
+This function then generates a list of files from each of the sub-directory while maintaining the specified distributions.
+The function then returns this flattened list of file paths.
+This function is useful as it ensures that the same proportion of files will be sampled from each arXiv defined topic area, no matter the size of the corpus currently being tested.
+
 The transformation attribute is used to represent transformation that have been applied to the bag-of-words corpus.
 An interesting feature of Gensim is that you can stack corpus transformations on top of each other.
 This for example could be used to apply a tf-idf transformation followed by an Latent-Semantic-Indexing transformation.
@@ -110,10 +116,12 @@ When it came to implementing the Word2Vec model a choice was made to not inherit
 This decision was made largely due to the difference in the semantics of the Word2Vec model and the models which used a bag-of-words representation.
 This of course means that the DRY principle is violated but the shared functionality between the two classes is minor and separation ultimately increases the overall readability of the code.
 
-The LDACorpus and the KNNCorpus are relatively small classes which inherit the majority of their functionality from the Corpus the class.
+The LDACorpus and the KNNCorpus are relatively small classes which inherit the majority of their functionality from the Corpus class.
 The attributes for the LDA class and the KNN expose the API for the underlying models imported from the Gensim and Annoy libraries.
 Exposing the API allowed easier testing and tweaking of the algorithms being investigated.
 
 \subsection{Code Harnesses}
+Two code harnesses are used in the research project. The first harness is used to generate the LDA, KNN and Word2Vec corpora and to log the time taken to generate each corpus.
+The second harness is used to run similarity queries on each of the corpus files, log the time taken to run the similarity queries, log the results of each of the queries and then output the results in JSON.
 
 \section{Conclusion}
