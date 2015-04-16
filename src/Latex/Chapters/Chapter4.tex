@@ -96,6 +96,23 @@ This Identity\_transformation is basically an identity function which returns th
 This approach was based on monad transformers from Haskell where the inner-most monad of stacked monad-transformers is either the identity monad or an IO action.
 This eliminated the unnecessary conditional statement and increased the code readability by applying functional programming paradigms.
 
+The Paper\_Corpus class is a wrapper around Gensim's Text\_Corpus class.
+Gensim favours document streaming and is agnostic as to how the corpus is stored.
+The corpus could be stored in one file or distributed across the web.
+The Text\_Corpus is an abstract class which allows the user to use Pythons generator expressions to lazily load documents from the corpus and do any necessary pre-processing to the text.
+As the arXiv corpus being investigated is organised as a collection of .txt files in multiple directories, this approach allowed the system to load documents one at a time and do some pre-processing to the text.
+The pre-processing conducted includes; reading the document into memory, translating the text to lower-case, splitting the word-tokens on whitespace characters, and filtering out words that appear only once in the document.
+
+Both the LDACorpus and the KNNCorpus files use a bag-of-words representation of the corpus and thus inherit from the Corpus class.
+W2VCorpus on the other hand trains it's model using the plaintext corpus.
+As stated above when implementing the system, code reuse and readability were two of the main factors considered.
+When it came to implementing the Word2Vec model a choice was made to not inherit from the Corpus class even though there was some shared functionality.
+This decision was made largely due to the difference in the semantics of the Word2Vec model and the models which used a bag-of-words representation.
+This of course means that the DRY principle is violated but the shared functionality between the two classes is minor and separation ultimately increases the overall readability of the code.
+
+The LDACorpus and the KNNCorpus are relatively small classes which inherit the majority of their functionality from the Corpus the class.
+The attributes for the LDA class and the KNN expose the API for the underlying models imported from the Gensim and Annoy libraries.
+Exposing the API allowed easier testing and tweaking of the algorithms being investigated.
 
 \subsection{Code Harnesses}
 
