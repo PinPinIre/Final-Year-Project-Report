@@ -1,3 +1,102 @@
 \chapter{Implementation}
 
+In this chapter I explain the technologies used during the project and explain how the design laid down in chapter 3 was implemented.
+Any challenges that were faced during the implementation are also discussed and contrasted with alternative approaches.
+
+\section{Technologies}
+Following an investigation of the field and the available technologies I decided that I would implement the system in Python.
+Python is a dynamically typed language which has support for multiple different programming paradigms.
+Python is widely used today both in industry and the scientific community.
+Libraries such as NumPy, SciPy, matplotlib and pandas are widely used in the fields of data-analysis and scientific computing.
+This has proven that Python is an adequate substitute for languages such as C, C++, Java, R, Matlab, etc.
+
+Python also favors readability and minimalism compared to low level programming languages.
+Despite being a relatively high level programming language, Python can also interface with C and C++ using the Cython library.
+This is particularly useful when making code optimisations, such as vectorising code loops.
+
+\subsection{Gensim}
+Gensim is a Python toolkit for topic modeling and semantic analysis of textual data.
+Gensim favours an online approach to training the models.
+This achieved using Python generator expressions, which can result in only one document from the corpus residing in main memory at any one time.
+This small memory footprint and incremental approach allows Gensim to scale in relation to the size of the corpus.
+Gensim interfaces very well with NumPy and SciPy libraries.
+As well as this it has been optimised to use the Cython library in order to speed up execution.
+
+By using the Gensim toolkit I was able to gain access to the following tools:
+\begin{itemize}
+    \item build a dictionary of features from the corpus
+    \item convert the corpus to a bag-of-words (bow) representation
+    \item apply tf-idf transformations to bow models
+    \item train LDA on bow models
+    \item convert bow models to NumPy arrays
+    \item train Miklov's Word2Vec model
+    \item easily load and save different repersentations of the corpus
+    \item use Gensim's native indexing for document similarities
+\end{itemize}
+
+As shown above Gensim is quite extensive in it's functionality and thus allowed me to manipulate the corpus easily.
+This would have taken a considerable amount of time had I implemented all of this functionality myself.
+
+\subsection{Annoy}
+Annoy is a C++ library with Python bindings for approximate-Nearest-Neighbour search.
+Annoy was created by Spotify to generate recommendations.
+Within Spotify they use it find similar users and similar songs.
+Spotify's system contains millions of tracks and has approximately 60 million active users.
+This shows that Annoy is a tried and tested approximate-Nearest-Neighbour library which has scaled to large data-sets.
+
+Annoy does approximate-Nearest-Neighbour queries by building an index using locality sensitive hashing (LSH) and random projections.
+LSH is a technique used to reduce the dimensionality of high dimensional data by mapping them hash bins.
+LSH tries to map similar items into the same bin and is very different to cryptographic functions which try to reduce the possibilities of collisions.
+Random projections are dimensionality reduction technique which works by projecting the data into a random subspace of lower dimension.
+
+Radim {\v R}eh{\r u}{\v r}ek, the creator of Gensim investigated the performance of different nearest neighbor libraries in November 2013.
+In the final investigation the libraries were reduced down to just Annoy and FLANN.
+During that investigation, Radim found that the query time for FLANN was approximately four times quicker than Annoy.
+Annoy on the other hand had almost perfect accuracy (When compared to a non-approximate version of k-NN) compared to FLANN.
+
+Annoy was selected for the k-NN investigation as:
+\begin{itemize}
+    \item Was found to be the most accurate approximate-Nearest-Neighbour library
+    \item Easy to understand API
+    \item Will be integrated into Gensim once the Boost library has been dropped as a requirement
+    \item Has been shown to scale to very large data-sets
+\end{itemize}
+
+As shown above Annoy was chosen largely due to it's simplicity and the ease of integration with the Gensim toolkit.
+
+\section{System Implementation}
+In this section I outline the system that I built as prescribed in Chapter three.
+Where possible UML has been used to describe the relations between the different components of the system.
+
+\subsection{System}
+\begin{figure}[h]
+    \centering
+        \includegraphics[width=0.7\textwidth]{Figures/FYPClassDiagram.png}
+    \caption{System class diagram}
+    \label{fig:UMLClass}
+\end{figure}
+
+Figure~\ref{fig:UMLClass} presents an overview of the system as a UML class diagram.
+The main class in the system is the Corpus class.
+The Corpus class is an abstract class used to represent a bag-of-words corpus.
+The docs attribute is a list of document names from the corpus.
+The dictionary attribute is a Gensim Dictionary object which represents the words in the corpus and their respective term frequencies.
+
+The transformation attribute is used to represent transformation that have been applied to the bag-of-words corpus.
+An interesting feature of Gensim is that you can stack corpus transformations on top of each other.
+This for example could be used to apply a tf-idf transformation followed by an Latent-Semantic-Indexing transformation.
+This however poised a small problem for the system.
+
+When creating the above system, code readability and code reuse were huge factors that were considered.
+In an earlier version of the project, if the corpus had a transformation applied, the transformation was only executed when iterating through the corpus.
+However if a corpus did not have any transformations applied to it, this required an nested if-statement, which reduced code readability.
+
+An alternative to this was to create an identity transformation which inherited from Gensim's TransformationABC class.
+This Identity\_transformation is basically an identity function which returns the input document vector.
+This approach was based on monad transformers from Haskell where the inner-most monad of stacked monad-transformers is either the identity monad or an IO action.
+This eliminated the unnecessary conditional statement and increased the code readability by applying functional programming paradigms.
+
+
+\subsection{Code Harnesses}
+
 \section{Conclusion}
