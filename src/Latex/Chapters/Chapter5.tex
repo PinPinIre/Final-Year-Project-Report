@@ -189,8 +189,12 @@ For this reason the time to preprocess LDA and k-NN is presented in Figure~\ref{
 \end{figure}
 
 The time taken to train LDA, k-NN and Word2Vec is presented in Figure~\ref{fig:TrainAll}.
-It should be noted that k-NN stops at approximately TODO words.
+It should be noted that k-NN stops functioning at a corpus of approximately 35,000 documents.
 This is due to the the underlying C++ library causing a segmentation fault as the size of the corpus increases.
+This is possibly caused by the machine the models were being built on running out of memory.
+When training a corpus of 30,000 documents it was noted that the process had allocate 21GB of virtual memory and was using approximately 90\% of physical memory.
+K-NN's sudden spike at 30,000 documents is probably caused by thrashing as data is swapped from disc to physical memory.
+The latency from reading from disc could account for the sudden increase in the train time. 
 
 \begin{figure}[h]
     \centering
