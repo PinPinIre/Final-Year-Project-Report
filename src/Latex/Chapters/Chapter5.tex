@@ -262,10 +262,17 @@ This process is prone to tedium and it is possible that the person classifying t
 Unlike the manual comparison, which can only evaluate a small number of results, this comparison uses the arXiv meta-data to compare against the recommendations generated.
 This is also imperfect due to the meta-date only associating each document with one topic when it could in fact be on the edge of two different topics.
 
+An extensive breakdown of the arXiv results can be found in Appendix A.
+Word2Vec seems to generate recommendations for papers which are in the arXiv topic for Mathematical Physics no matter what size the corpus is.
+Surprisingly k-NN's recommendations are similar to the arXiv recommendations when the corpus is quite small.
+As the size of the corpus grows, k-NN seems to generate recommendations from a small subsection of the arXiv topics.
+Inversely LDA seems to generate better results the larger the corpus becomes.
+From this analysis it would seem that LDA is better at generating recommendations which are similar to the arXiv defined topics.
+
 \section{Conclusion}
 In this chapter the performance of LDA, k-NN and Word2Vec has been presented.
 In temporal performance it was found that Word2Vec was the quickest at training a model of the corpus.
-Word2Vec on the other hand generated quite poor recommendations and would not be useful for this purpose.
+Word2Vec on the other hand generated very poor recommendations and would not be useful for this purpose.
 The k-NN library used generated passible recommendations but it was not able to scale above 30,000 documents and may be unsuitable in a real world context.
 The temporal performance of the LDA grew linearly with the size of the corpus and was comparable to k-NN until it failed.
 LDA was also the quickest at generating recommendations for each corpus size examined.
