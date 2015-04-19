@@ -97,7 +97,7 @@ The papers are then converted from PDF to txt and sorted into directories based 
 A harness for building the models is then run on the plain text corpus.
 Depending on the algorithm used the system flow splits at this point.
 
-If LDA or KNN is used then a dictionary of words must be built and then very common and very uncommon words are filtered out.
+If LDA or k-NN is used then a dictionary of words must be built and then very common and very uncommon words are filtered out.
 This is done as very common words that are present in a majority of the documents are very unlikely to have strong influence on the similarity of the content of documents.
 Likewise very uncommon words are discarded as they are very likely to be noise in the dataset.
 Examples of this would be misspelled words or typesetting errors from the original papers.

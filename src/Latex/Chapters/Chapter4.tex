@@ -117,11 +117,11 @@ This decision was made largely due to the difference in the semantics of the Wor
 This of course means that the DRY principle is violated but the shared functionality between the two classes is minor and separation ultimately increases the overall readability of the code.
 
 The LDACorpus and the KNNCorpus are relatively small classes which inherit the majority of their functionality from the Corpus class.
-The attributes for the LDA class and the KNN expose the API for the underlying models imported from the Gensim and Annoy libraries.
+The attributes for the LDA class and the k-NN expose the API for the underlying models imported from the Gensim and Annoy libraries.
 Exposing the API allowed easier testing and tweaking of the algorithms being investigated.
 
 \subsection{Code Harnesses}
-Two code harnesses are used in the research project. The first harness is used to generate the LDA, KNN and Word2Vec corpora and to log the time taken to generate each corpus.
+Two code harnesses are used in the research project. The first harness is used to generate the LDA, k-NN and Word2Vec corpora and to log the time taken to generate each corpus.
 The second harness is used to run similarity queries on each of the corpus files, log the time taken to run the similarity queries, log the results of each of the queries and then output the results in JSON.
 
 \subsubsection{Generation Harness}
@@ -136,7 +136,7 @@ For all of the algorithm apart from Word2Vec, a dictionary must be created and t
 Word2Vec effectively skips this stage as it builds it's dictionary and model in the training stage.
 For each corpus created, the time take to build the corpus is logged to a log file.
 After the corpus and dictionary files have been created, the models is trained.
-As Word2Vec differs from LDA and KNN it trains using the original textual corpus.
+As Word2Vec differs from LDA and k-NN it trains using the original textual corpus.
 LDA and k-NN on the other hand must use the dictionaries and bag-of-words representations created previously to train their models.
 The times take to train each of the models is also logged to a file.
 
