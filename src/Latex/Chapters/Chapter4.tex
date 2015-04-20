@@ -47,7 +47,7 @@ This shows that Annoy is a tried and tested approximate-Nearest-Neighbour librar
 Annoy does approximate-Nearest-Neighbour queries by building an index using locality sensitive hashing (LSH) and random projections.
 LSH is a technique used to reduce the dimensionality of high dimensional data by mapping the data into hash bins.
 LSH tries to map similar items into the same bin and is very different to cryptographic functions which try to reduce the possibilities of collisions.
-Random projections are a type of dimensionality reduction techniques which work by projecting the data into a random subspace of lower dimension.
+Random projections are a type of dimensionality reduction techniques which work by projecting the data into a random subspace of lower dimension\cite{Dasgupta2000}.
 
 Radim {\v R}eh{\r u}{\v r}ek, the creator of Gensim investigated the performance of different nearest neighbor libraries in November 2013 \cite{radimKnnInvestigation}.
 In the final investigation the libraries were reduced down to just Annoy and FLANN.

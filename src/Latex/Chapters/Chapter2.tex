@@ -10,17 +10,17 @@ In Turing's example, he proposed that learning was a prerequisite for a true int
 Turing further expanded on the concept of an intelligent machine in his 1950 paper in which he proposed a theoretical test, called the "imitation game", to identify whether machines could be considered intelligent \cite{Turing1950}.
 This test has since become known as the Turing test.
 
-Machine learning and recommendation systems can be viewed as semi-intelligent machines which try to learn from data fed into them.
+Machine learning and recommendation systems can be viewed as semi-intelligent machines which try to learn from data fed into them\cite{mlTutorial}.
 These machines are replacements for human operators who would have had to classify data or suggest recommendations in the past.
-One of the main reasons machines are used, instead of humans for this task is largely due to the volume of data available.
+One of the main reasons machines are used, instead of humans for this task is largely due to the volume of data available\cite{lops}.
 Another factor to consider is the quality of results obtained from the system.
-Humans, for example, can be biased in their opinion when presenting their results or findings.
-A machine on the other hand generates it's results using the model it has created using only the data that has been presented to it.
+Humans, for example, can possibly be biased in their opinion when presenting their results or findings.
+A machine on the other hand should generate it's results using the model it has created using only the data that has been presented to it.
 This approach is less likely to be skewed by a bias when the model has been created using a balanced dataset\cite{FProvost2000}.
 
 \section{Machine Learning}
 Machine learning is an interdisciplinary field concerned with the study of self learning systems.
-Machine learning has applications in fields such as: statistics, mathematics, computer vision, game theory, information retrieval, software engineering, sentiment analysis, and artificial intelligence.
+Machine learning has applications in fields such as: statistics, mathematics, computer vision, game theory, information retrieval, software engineering, sentiment analysis, and artificial intelligence\cite{mlTutorial}.
 
 Machine learning algorithms try to build a model of a dataset by learning the patterns in the data.
 The resulting model created by many machine learning algorithms can then output seemingly intelligent results for data that it has never seen before.
@@ -36,21 +36,21 @@ Machine learning can be split into three different types of learning:
 Supervised learning is a machine learning technique which tries to create a model which maps inputs to desired outputs.
 This can be represented as a function f(x) which maps an input \(x_i\) to an output \(y_i\).
 This is achieved by using a training set T = \((x_i, y_i)\) and a learning algorithm.
-The learning algorithm produces a function \(\hat{f}(x_i)\) which can then be modified in response to the difference between \(y_i - \hat{f}(x_i)\).
+The learning algorithm produces a function \(\hat{f}(x_i)\) which can then be modified in response to the difference between \(y_i - \hat{f}(x_i)\)\cite{mlTutorial}.
 
 \subsection{Reinforced learning}
 Reinforced learning is a machine learning technique where the machine interacts with an environment and produces actions \(a_i\).
 This set of actions interact with the environment which in turn results in the machine receiving rewards \(r_i\) from a rewards function.
-The machine tries to learn how to create actions which maximizes the future return on rewards.
+The machine tries to learn how to create actions which maximizes the future return on rewards\cite{mlTutorial}.
 
 \subsection{Unsupervised learning}
 Unsupervised learning is a machine learning technique which tries to find hidden patterns in data.
 An unsupervised learning algorithm receives inputs \(x_i\) but receives no desired outputs nor rewards.
-The machine tries to build a probabilistic model of the data or it uses clustering to partition the data in categories.
+The machine tries to build a probabilistic model of the data or it uses clustering to partition the data in categories\cite{mlTutorial}.
 
 The main difference between unsupervised techniques and other techniques is the lack of a clear measure of success.
 This poises a problem when comparing the accuracy of different unsupervised techniques.
-The effectiveness of unsupervised techniques therefore relies heavily on heuristic approaches when judging their quality.
+The effectiveness of unsupervised techniques therefore relies heavily on heuristic approaches when judging their quality\cite{elementsStat}.
 
 The research conducted in this project is focused on the unsupervised approach to machine learning.
 Due to the fact that there is no gold standard to compare the quality of the similarity results, their effectiveness will be a matter of opinion.
@@ -60,7 +60,7 @@ Where possible the results will also be compared against any possible meta-data 
 Recommendation systems are algorithms and techniques which try to generate recommendations for users.
 The design of recommendation systems is an interdisciplinary field which touches upon information retrieval, human computer interaction, machine learning, data mining, etc.
 These systems often try to generate recommendations based on similarities between users or between content.
-There are two main approaches used in recommendation systems:
+There are two main approaches used in recommendation systems\cite{recHandbookIntro}:
 
 \begin{itemize}
     \item Collaborative-filtering
@@ -71,13 +71,13 @@ There are two main approaches used in recommendation systems:
 Collaborative-filtering is an approach used by recommendation systems which tries to generate recommendations by comparing user data with other users.
 The rationale behind this approach is to find similarities and differences  between different groups of users and build a user model.
 Once users have been grouped together, recommendations can be generated based on what similar users have liked and disliked.
-This type of recommendation system has been used extensively by Amazon when generating recommendations.
+This type of recommendation system has been used extensively by Amazon when generating recommendations\cite{recHandbookIntro}.
 
 The main problem with this approach is that it requires a huge amount of initial data in order to generate appropriate recommendations.
 
 \subsection{Content-filtering}
 Content-filtering is an approach used by recommendation systems which learns to generate recommendations based on a users previous interactions with an item.
-This approach tries to learn the features of items in order to generate recommendations for items with similar features.
+This approach tries to learn the features of items in order to generate recommendations for items with similar features\cite{recHandbookIntro}.
 
 Unlike collaborative-filtering a huge amount of user data is not required for content-filtering.
 The recommendations for this approach can be generated by building a model using the individual item features.
