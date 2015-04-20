@@ -1,10 +1,10 @@
 \chapter{Implementation}
 
-In this chapter I explain the technologies used during the project and explain how the design laid down in chapter 3 was implemented.
+In this chapter the technologies used during the project are explained. An overview of how the design laid down in chapter 3 was implemented is presented.
 Any challenges that were faced during the implementation are also discussed and contrasted with alternative approaches.
 
 \section{Technologies}
-Following an investigation of the field and the available technologies I decided that I would implement the system in Python.
+Following an investigation of the field and the available technologies it was decided that the system would be implemented in Python.
 Python is a dynamically typed language which has support for multiple different programming paradigms.
 Python is widely used today both in industry and the scientific community.
 Libraries such as NumPy, SciPy, matplotlib and pandas are widely used in the fields of data-analysis and scientific computing.
@@ -17,15 +17,15 @@ This is particularly useful when making code optimisations, such as vectorising 
 \subsection{Gensim}
 Gensim is a Python toolkit for topic modeling and semantic analysis of textual data.
 Gensim favours an online approach to training the models.
-This achieved using Python generator expressions, which can result in only one document from the corpus residing in main memory at any one time.
+This is achieved using Python generator expressions, which can result in only one document from the corpus residing in main memory at any one time.
 This small memory footprint and incremental approach allows Gensim to scale in relation to the size of the corpus.
 Gensim interfaces very well with NumPy and SciPy libraries.
-As well as this it has been optimised to use the Cython library in order to speed up execution.
+As well as this, it has been optimised to use the Cython library in order to speed up execution.
 
-By using the Gensim toolkit I was able to gain access to the following tools:
+By using the Gensim toolkit the system was able to gain access to the following tools:
 \begin{itemize}
     \item build a dictionary of features from the corpus
-    \item convert the corpus to a bag-of-words (bow) representation
+    \item convert the corpus to a bow representation
     \item apply tf-idf transformations to bow models
     \item train LDA on bow models
     \item convert bow models to NumPy arrays
@@ -34,30 +34,30 @@ By using the Gensim toolkit I was able to gain access to the following tools:
     \item use Gensim's native indexing for document similarities
 \end{itemize}
 
-As shown above Gensim is quite extensive in it's functionality and thus allowed me to manipulate the corpus easily.
-This would have taken a considerable amount of time had I implemented all of this functionality myself.
+As shown above Gensim is quite extensive in it's functionality and thus allowed the easy manipulation of corpus.
+Without access to Gensim it would have taken a considerable amount of time to implement all of this functionality.
 
 \subsection{Annoy}
 Annoy is a C++ library with Python bindings for approximate-Nearest-Neighbour search.
 Annoy was created by Spotify to generate recommendations.
-Within Spotify they use it find similar users and similar songs.
+Within Spotify they use it to find similar users and similar songs.
 Spotify's system contains millions of tracks and has approximately 60 million active users.
 This shows that Annoy is a tried and tested approximate-Nearest-Neighbour library which has scaled to large data-sets.
 
 Annoy does approximate-Nearest-Neighbour queries by building an index using locality sensitive hashing (LSH) and random projections.
-LSH is a technique used to reduce the dimensionality of high dimensional data by mapping them hash bins.
+LSH is a technique used to reduce the dimensionality of high dimensional data by mapping the data into hash bins.
 LSH tries to map similar items into the same bin and is very different to cryptographic functions which try to reduce the possibilities of collisions.
-Random projections are dimensionality reduction technique which works by projecting the data into a random subspace of lower dimension.
+Random projections are a type of dimensionality reduction techniques which work by projecting the data into a random subspace of lower dimension.
 
-Radim {\v R}eh{\r u}{\v r}ek, the creator of Gensim investigated the performance of different nearest neighbor libraries in November 2013.
+Radim {\v R}eh{\r u}{\v r}ek, the creator of Gensim investigated the performance of different nearest neighbor libraries in November 2013 \cite{radimKnnInvestigation}.
 In the final investigation the libraries were reduced down to just Annoy and FLANN.
 During that investigation, Radim found that the query time for FLANN was approximately four times quicker than Annoy.
 Annoy on the other hand had almost perfect accuracy (When compared to a non-approximate version of k-NN) compared to FLANN.
 
-Annoy was selected for the k-NN investigation as:
+Annoy was selected for the k-NN investigation as it:
 \begin{itemize}
     \item Was found to be the most accurate approximate-Nearest-Neighbour library
-    \item Easy to understand API
+    \item has an easy to understand API
     \item Will be integrated into Gensim once the Boost library has been dropped as a requirement
     \item Has been shown to scale to very large data-sets
 \end{itemize}
@@ -65,7 +65,7 @@ Annoy was selected for the k-NN investigation as:
 As shown above Annoy was chosen largely due to it's simplicity and the ease of integration with the Gensim toolkit.
 
 \section{System Implementation}
-In this section I outline the system that I built as prescribed in Chapter three.
+In this section an outline the system that was built, as prescribed in Chapter 3, is presented.
 Where possible UML has been used to describe the relations between the different components of the system.
 
 \subsection{System}
@@ -105,7 +105,7 @@ This eliminated the unnecessary conditional statement and increased the code rea
 The Paper\_Corpus class is a wrapper around Gensim's Text\_Corpus class.
 Gensim favours document streaming and is agnostic as to how the corpus is stored.
 The corpus could be stored in one file or distributed across the web.
-The Text\_Corpus is an abstract class which allows the user to use Pythons generator expressions to lazily load documents from the corpus and do any necessary pre-processing to the text.
+The Text\_Corpus is an abstract class which allows the user to use Python's generator expressions to lazily load documents from the corpus and do any necessary pre-processing to the text.
 As the arXiv corpus being investigated is organised as a collection of .txt files in multiple directories, this approach allowed the system to load documents one at a time and do some pre-processing to the text.
 The pre-processing conducted includes; reading the document into memory, translating the text to lower-case, splitting the word-tokens on whitespace characters, and filtering out words that appear only once in the document.
 
@@ -114,7 +114,7 @@ W2VCorpus on the other hand trains it's model using the plaintext corpus.
 As stated above when implementing the system, code reuse and readability were two of the main factors considered.
 When it came to implementing the Word2Vec model a choice was made to not inherit from the Corpus class even though there was some shared functionality.
 This decision was made largely due to the difference in the semantics of the Word2Vec model and the models which used a bag-of-words representation.
-This of course means that the DRY principle is violated but the shared functionality between the two classes is minor and separation ultimately increases the overall readability of the code.
+This of course means that the DRY principle, from software-engineering, is violated but the shared functionality between the two classes is minor and separation ultimately increases the overall readability of the code.
 
 The LDACorpus and the KNNCorpus are relatively small classes which inherit the majority of their functionality from the Corpus class.
 The attributes for the LDA class and the k-NN expose the API for the underlying models imported from the Gensim and Annoy libraries.

@@ -8,11 +8,11 @@ The overall system architecture will be presented in the form of UML diagrams.
 
 \section{Requirements}
 Based on the objectives and challenges as listed in chapter 1, the requirements can be split into corpus requirements and implementation requirements.
-The corpus requirements deal with the selection of the corpus and sampling of the when test are run across different sizes of the corpus.
-The implementation requirement deal with the three algorithms chosen and the different libraries used to implement them in the project.
+The corpus requirements deal with: the selection of the corpus and sampling of documents when the test are run on corpora of varying size.
+The implementation requirement deals with the three algorithms chosen and the different libraries used to implement them in the project.
 
 \subsection{Corpus Selection}
-In the context of generating recommendations for a student an academic or educational corpus should be used.
+In the context of generating recommendations for a student, an academic or educational corpus should be used.
 The availability of a large and respected educational corpus poises a problem however.
 It was decided that academic papers from arXiv would act as a proxy for educational resources.
 This in itself could create a problem due to how academic papers are usually written.
@@ -21,9 +21,9 @@ The language used is generally an advanced discussion of a particular subject, w
 This is particularly relevant for the arXiv corpus which has a large number of papers related to mathematics and physics.
 
 While arXiv may not be the perfect educational corpus it is an adequate proxy.
-The arXiv corpus could also be comparable to the corpus used by Blei in his paper on LDA.
+The arXiv corpus could also be comparable to the corpus used by Blei in his paper on LDA.\cite{BleiLDANature}
 In the Blei experiment, LDA was applied to approximately 22,000 articles from the journal Nature.
-In that experiment Blei created an LDA model with 50 topics and used it to identify topics with documents and to find documents of a similar topic.
+In that experiment, Blei created an LDA model with 50 topics and used it to identify topics with documents and to find documents of a similar topic.
 
 \subsection{Document Preprocessing}
 The documents that are retrieved from the arXiv Amazon S3 bucket are saved as PDF documents.
@@ -35,22 +35,22 @@ This greatly speeded up the preprocessing stage as a four core machine could con
 Each of the arXiv papers follows the naming convention as follows: \textit{$\ll$topic-name$\gg\ll$paper-id$\gg$}.
 This metadata can be used to sort the papers in directories based on their arXiv topic and to calculate the distribution of papers from specific research areas.
 More importantly this metadata allows us to compare the similar document recommendations generated against the arXiv topics.
-If we consider the arXiv defined groupings to be a baseline we can assume that recommendations generated should return a large number of documents that are also in the same arXiv topic.
+If we consider the arXiv defined groupings to be a baseline, we can assume that recommendations generated should return a large number of documents that are also in the same arXiv topic.
 
 \subsection{Corpus Sampling}
 The corpus selected contains approximately 50,000 academic papers from arXiv.
 The corpus contains a mixture of papers from Physics, Mathematics, Computer Science and Nonlinear Sciences.
-The papers are further split into smaller specific topics which have been selected by a moderator at arXiv.
+The papers are further split into smaller, specific topics which have been selected by a moderator at arXiv.
 There is however a disproportionate number of papers related to physics compared to the other sections.
 
-As the algorithms are to be applied to a corpus of varying size the distribution of papers from each of the arXiv sections should be maintained.
+As the algorithms are to be applied to a corpus of varying size, the distribution of papers from each of the arXiv sections should be maintained.
 This should be done in order to prevent papers with particular topics or from a particular research area dominating the models generated.
 If this was not done it would be possible that the algorithms could become too finely tuned to papers of a specific topic.
 This could then result in the model generating a disproportionate number of recommendations from that particular topic.
 
 To overcome this problem the system samples papers from each of the arXiv defined topics.
-As different size corpus are tested a number of papers are randomly selected from each of the arXiv defined topics.
-In order to ensure that the distribution of topics is consistent for every corpus size tested, the systems selects random papers so that the proportion of papers in each topic remains the same irrespective of corpus size.
+As different size corpora are tested, a number of papers are randomly selected from each of the arXiv defined topics.
+In order to ensure that the distribution of topics is consistent for every corpus size tested, the systems selects random papers so that the proportion of papers in each topic remains the same, irrespective of corpus size.
 
 \subsection{Algorithm Performance}
 To adequately evaluate the performance of each of the algorithms the performance criteria has to be factored into the design of the system.
@@ -74,15 +74,15 @@ Evaluating the quality of recommendations by hand is also imperfect because it d
 
 \subsection{Algorithm Tuning}
 Each of the algorithms being investigated have slightly different applications and can vary in their implementations between libraries.
-When evaluating each of the algorithms, the API for each implementation should be studied and then the tested on a section of the corpus.
+When evaluating each of the algorithms, the API for each implementation should be studied and then tested on a section of the corpus.
 When tuning the arguments of each of the algorithms the changes should be noted and analysed.
 Only once a seemingly optimum implementation has been found should the tests be conducted.
 This is done as most of the algorithms have different purposes outside of natural language processing and the default parameters could have an entirely different application in mind.
 
 \section{System Overview}
-In this section I present the architecture of the system as UML activity diagrams and explain the general process that occurs.
-The generation of the models has been split from the generation of the document similarity queries.
-This was done as the building of the model and then querying the model should be viewed as two separate processes.
+In this section the architecture of the system is presented as UML activity diagrams and the general process that occurs is explained.
+The generation of the models has been presented as being separate from the generation of the document similarity queries.
+This was done as the performance of building the models and the performance of querying of the models are two separate processes being investigated.
 
 \subsection{Models}
 \begin{figure}[h]
@@ -105,8 +105,8 @@ Examples of this would be misspelled words or typesetting errors from the origin
 Once the dictionary is created a bag-of-words representation of the corpus is created.
 A bag-of-words representation is one where a document is represented by a vector of tuples.
 These tuples contain a word identification number and another number which represents the frequency of the word in that document.
-A tf–idf (term frequency–inverse document frequency) transformation is then applied to the corpus.
-The original bag-of-words representation created above, only models the term frequency of words in the document.
+A tf-idf (term frequency-inverse document frequency) transformation is then applied to the corpus.
+The original bag-of-words representation created above only models the term frequency of words in the document.
 The inverse document frequency decreases in size the more often a particular word appears in the corpus as a whole.
 A tf-idf transformation multiples the idf of a word with it's tf.
 This results in the word being weighted by a value between 0 and 1 to show it's importance in the current document.
@@ -132,11 +132,11 @@ This word vector representation can be used to query how similar words or docume
 \end{figure}
 As shown in Figure~\ref{fig:queryUML} the system to run the similarity queries is relatively straight forward.
 The system generates a list of query files and then loads the documents.
-If the model being tested is not Word2Vec the corpus dictionary must be loaded and the query files converted to a bag-of-words representation.
-If the model is Word2Vec the query documents are simply loaded as they are without processing them further.
+If the model being tested is not Word2Vec, the corpus dictionary must be loaded and the query files converted to a bag-of-words representation.
+If the model is Word2Vec the query documents are simply loaded as they are, without processing them further.
 
 The models are then loaded and each of the queries is run.
-If the model being tested is Word2Vec the query document must be labelled and then added to the model.
+If the model being tested is Word2Vec, the query document must be labelled and then added to the model.
 This is done in order to create a word vector representation of the document.
 Once we have done this we can query the Word2Vec model to find words and documents which are semantically similar to the query document.
 

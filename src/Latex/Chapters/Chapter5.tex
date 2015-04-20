@@ -1,5 +1,5 @@
 \chapter{Evaluation}
-In this chapter I outline my findings using tables and graphs where appropriate.
+In this chapter an outline the project findings is presented, using tables and graphs where appropriate.
 An analysis of the corpus and the tests conducted to tweak the model parameters is presented.
 The analysis of the temporal performance is then presented.
 The temporal performance for building the models and the temporal performance for conducting document similarity queries will be presented.
@@ -16,9 +16,9 @@ The arXiv corpus consists to 50,400 documents from a number of arXiv topic group
 A breakdown of the groupings can be found in Table~\ref{table:arxivBreakdown}.
 Approximately 30,000 of the papers are related to astrophysics, condensed matter and high energy physics.
 The bias towards those topics may influence the models generated.
-The removal of frequent and infrequent terms from the corpus will be presented below.
-I believed originally that filtering out very frequent terms could have had a negative effect on the dictionaries generated.
-As the aforementioned groupings make up approximately 60\% of the corpus, I believed filtering could possibly remove words common to those papers.
+The removal of frequent and infrequent terms from the corpus will be presented.
+An investigation was conducted to see if filtering out very frequent terms had a negative effect on the dictionaries generated.
+As the aforementioned groupings make up approximately 60\% of the corpus, it was possible that filtering could remove words common to those papers.
 As show in Table~\ref{table:frequentFeatures}, filtering out very common words had very little impact on the overall size of the corpus feature space.
 
 \begin{table}[h]
@@ -55,7 +55,7 @@ A large number of these features appear in only a small number of the documents 
 Both of these can cause problems when creating the models.
 A word that appears very few times in all of the documents is going to have very little impact on the quality of the models created.
 This can lead to a very sparse feature space as each word vector will contain mostly zero entries.
-By filtering out these infrequent terms we can reduce the feature space and make our models more efficient by making our vectors less sparse. The following is an analysis of the size of the feature space as different filtering strategies were applied to the corpus.
+By filtering out these infrequent terms it is possible to reduce the feature space and make the generated models more efficient by making the vectors less sparse. The following is an analysis of the size of the feature space as different filtering strategies were applied to the corpus.
 
 \begin{figure}[h]
     \centering
@@ -86,12 +86,12 @@ By filtering out these infrequent terms we can reduce the feature space and make
     \label{table:infrequentFeatures}
 \end{table}
 
-In Figure~\ref{fig:FilterInfrequent} we can see that as we filter out infrequent words the size of the feature space shrinks dramatically until we reach words that are in at least 20 documents.
+In Figure~\ref{fig:FilterInfrequent}, it can be seen that as infrequent words are filtered out, the size of the feature space shrinks dramatically until the filter amount reaches words that are in at least 20 documents.
 The rate the corpus shrinks seems to level off at around 20-30 documents.
 By filtering words using this strategy it was hoped that words which would be considered as noise would be removed from the dataset.
 
 For each of the filtered dictionaries, a list of words whose frequency was one greater than the filter amount, was manually examined.
-From my analsis of the sample features a large number appeared to be random unicode characters, parts of mathematical equations or incomprehensible words.
+From the analysis of the sample features, a large number appeared to be random unicode characters, parts of mathematical equations, peoples names, or incomprehensible words.
 An example of some of the words can be seen in Table ~\ref{table:infrequentWords}:
 
 \begin{table}[h]
@@ -142,27 +142,27 @@ An example of some of the words can be seen in Table ~\ref{table:infrequentWords
     \label{table:frequentFeatures}
 \end{table}
 
-In Figure~\ref{fig:FilterFrequent} we can see the effects of filtering out words which appear in a large percentage of the documents in the corpus.
+In Figure~\ref{fig:FilterFrequent} the effects of filtering out words which appear in a large percentage of the documents can be seen.
 Compared to the filtering of infrequent terms shown previously, the filtering of frequent terms seems less effective.
 
 These words are very likely to be words that would be very common English words such as "the", "and", "but", "a", "if", "or", etc.
 These words are filtered from the corpus as they are so common in the documents that they are not distinguishable features that could be used to separate papers into different groupings.
 
-From the above analysis of above analysis of filtering the corpus, it was decided that terms that appeared in less than 20 of the documents or appeared in at least 75\% of the documents would be filtered out.
+From the above analysis of filtering the corpus, it was decided that terms that appeared in less than 20 of the documents or appeared in at least 75\% of the documents would be filtered out.
 The lower bound of 20 was decided upon, as the number of features removed from the dictionary appeared to level off at around 20-25 minimum occurrences.
 It was found that filtering out very frequent words had very little effect on the size of the dictionary.
-The filter of 75\% was decide upon in order to remove very common words that could also have been removed using a list of stop-words.
+The filter of 75\% was decided upon in order to remove very common words that could also have been removed using a list of stop-words.
 
 \subsection{LDA Topic coherrency}
 In this section the arXiv corpus was analysed by examining the quality of topics generated.
-For this analyse a sample of 3000 papers from the arXiv corpus was selected and the number of topics varied in multiples of 50 from 50-300.
+For this analysis, a sample of 3000 papers from the arXiv corpus was selected and the number of topics varied in multiples of 50 from 50-300.
 The topics generated by the LDA algorithm were then manually evaluated.
-This range was chosen based on the experiments conducted by Blei on the Nature corpus and an a different corpus of arXiv documents.
+This range was chosen based on the experiments conducted by Blei on the Nature corpus and a different corpus of arXiv documents\cite{BleiArXiv}.
 It was found that generating models with 100 topics seemed to generate the most coherent topics.
 
 Until version 0.11 of Gensim, the coherence of LDA topics was analysed by manually evaluating the topics generated.
-In version 0.11 of Gensim a function was added to sort topics based on their coherence.
-This was based on the work of Mimno in his 2011 paper for evaluating the coherence of LDA topics.
+In version 0.11 of Gensim, a function was added to sort topics based on their coherence.
+This was based on the work of Mimno in his 2011 paper for evaluating the coherence of LDA topics\cite{Mimno}.
 Unfortunately this update was released too late into the project to be used in the evaluation of LDA topics.
 Future work into this research could use this functionality when choosing the number of LDA topics to use.
 
@@ -178,7 +178,7 @@ This is due to the LDA and k-NN algorithms requiring a bag-of-words representati
 First the corpus dictionary must be created by passing over the corpus once and the dictionary filtered of frequent or infrequent terms.
 The corpus must then be passed over once more to translate each document into a bag-of-words representation.
 
-Word2Vec on the other hand trains it's model on the textual representation of the corpus and doesn't require any extra preprocessing.
+Word2Vec, on the other hand, trains it's model on the textual representation of the corpus and doesn't require any extra pre-processing.
 For this reason the time to preprocess LDA and k-NN is presented in Figure~\ref{fig:BuildBow}.
 
 \begin{figure}[h]
@@ -260,13 +260,13 @@ This process is prone to tedium and it is possible that the person classifying t
 
 \subsection{arXiv comparison}
 Unlike the manual comparison, which can only evaluate a small number of results, this comparison uses the arXiv meta-data to compare against the recommendations generated.
-This is also imperfect due to the meta-date only associating each document with one topic when it could in fact be on the edge of two different topics.
+This is also imperfect due to the meta-data only associating each document with one topic when it could in fact be on the edge of two different topics.
 
 An extensive breakdown of the arXiv results can be found in Appendix A.
 Word2Vec seems to generate recommendations for papers which are in the arXiv topic for Mathematical Physics no matter what size the corpus is.
 Surprisingly k-NN's recommendations are similar to the arXiv recommendations when the corpus is quite small.
 As the size of the corpus grows, k-NN seems to generate recommendations from a small subsection of the arXiv topics.
-Inversely LDA seems to generate better results the larger the corpus becomes.
+Inversely, LDA seems to generate better results the larger the corpus becomes.
 From this analysis it would seem that LDA is better at generating recommendations which are similar to the arXiv defined topics.
 
 \section{Conclusion}
@@ -278,4 +278,4 @@ The temporal performance of the LDA grew linearly with the size of the corpus an
 LDA was also the quickest at generating recommendations for each corpus size examined.
 The results generated by LDA also seemed to be the most coherent recommendations.
 
-In the following chapter I will present my conclusions from this research project and outline any possible future work that could be conducted.
+In the following chapter the conclusions from this research project will be presented and outline of any possible future work that could be conducted will be discussed.
