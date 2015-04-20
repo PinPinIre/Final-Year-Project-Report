@@ -8,7 +8,7 @@ Following an investigation of the field and the available technologies it was de
 Python is a dynamically typed language which has support for multiple different programming paradigms.
 Python is widely used today both in industry and the scientific community.
 Libraries such as NumPy, SciPy, matplotlib and pandas are widely used in the fields of data-analysis and scientific computing.
-This has proven that Python is an adequate substitute for languages such as C, C++, Java, R, Matlab, etc.
+This has proven that Python is an adequate substitute for languages such as C, C++, Java, R, Matlab, etc\cite{PythonR}.
 
 Python also favors readability and minimalism compared to low level programming languages.
 Despite being a relatively high level programming language, Python can also interface with C and C++ using the Cython library.
@@ -46,7 +46,7 @@ This shows that Annoy is a tried and tested approximate-Nearest-Neighbour librar
 
 Annoy does approximate-Nearest-Neighbour queries by building an index using locality sensitive hashing (LSH) and random projections.
 LSH is a technique used to reduce the dimensionality of high dimensional data by mapping the data into hash bins.
-LSH tries to map similar items into the same bin and is very different to cryptographic functions which try to reduce the possibilities of collisions.
+LSH tries to map similar items into the same bin and is very different to cryptographic functions which try to reduce the possibilities of collisions\cite{slaney2008locality}.
 Random projections are a type of dimensionality reduction techniques which work by projecting the data into a random subspace of lower dimension\cite{Dasgupta2000}.
 
 Radim {\v R}eh{\r u}{\v r}ek, the creator of Gensim investigated the performance of different nearest neighbor libraries in November 2013 \cite{radimKnnInvestigation}.
@@ -160,4 +160,19 @@ This was done as there are some interesting Javascript libraries which could be 
 \section{Conclusion}
 In this chapter the implementation of the system designed in chapter three has been described.
 Any challenges encountered have been stated and their solutions explained.
+A complete system for building models of a corpus and for querying the generated models has been built.
+This consists of components to:
+\begin{itemize}
+    \item process a large number PDF documents into plain text
+    \item to sample a distribution of documents from the corpus
+    \item convert documents into a bag-of-words representation
+    \item build models of the corpus
+    \item time the execution for building and querying the models
+    \item query the generated models using a collection of plain text documents
+    \item parse and log similarity results
+    \item and to visualise the data generated
+\end{itemize}
+This systems allows the easy analysis of machine learning algorithms on a textual corpus.
+The system was originally intended for the arXiv corpus and the three machine learning algorithms stated previously. However, the system could be easily extended to use another text corpus or different algorithms.
+
 In the following chapter, the results generated from the above system will be presented and analysed.
