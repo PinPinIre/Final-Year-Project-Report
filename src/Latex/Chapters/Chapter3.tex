@@ -108,7 +108,7 @@ These tuples contain a word identification number and another number which repre
 A tf-idf (term frequency-inverse document frequency) transformation is then applied to the corpus.
 The original bag-of-words representation created above only models the term frequency of words in the document.
 The inverse document frequency decreases in size the more often a particular word appears in the corpus as a whole.
-A tf-idf transformation multiples the idf of a word with it's tf.
+A tf-idf transformation multiplies the idf of a word with it's tf.
 This results in the word being weighted by a value between 0 and 1 to show it's importance in the current document.
 The LDA or the k-NN model is then trained using the tf-idf corpus.
 
@@ -147,4 +147,4 @@ The results are saved to JSON in order to make it easier to load the results int
 \section{Conclusion}
 The problems identified in chapter one have been analysed in this chapter and design solutions have been proposed.
 These solutions form the basis of the system which has been built.
-The system architecture as show in Figures~\ref{fig:queryUML}~\ref{fig:buildUML} has been built and will be presented in detail in the following chapter.
+The system architecture as shown in Figures~\ref{fig:queryUML}~\ref{fig:buildUML} has been built and will be presented in detail in the following chapter.
